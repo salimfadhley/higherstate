@@ -1,4 +1,3 @@
 .idea/**/*.xml
 project/target
-src/
 target/
