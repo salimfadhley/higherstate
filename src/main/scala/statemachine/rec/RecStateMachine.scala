@@ -7,18 +7,18 @@ import statemachine._
   */
 object RecStateMachine extends AbstractStateMachine[State, Transition] {
   override def apply(s: State, t: Transition): Either[State, StateMachineError] = {
-    s.name match {
-      case "A" =>
-        t.name match {
-          case "b" => Left(State("B"))
-          case x => Right(new InvalidTransition(x))
+    s match {
+      case State("A") =>
+        t match {
+          case Transition("b") => Left(State("B"))
+          case x => Right(new InvalidTransition(x.toString))
         }
-      case "B" =>
-        t.name match {
-          case "a" => Left(State("A"))
-          case x => Right(new InvalidTransition(x))
+      case State("B") =>
+        t match {
+          case Transition("a") => Left(State("A"))
+          case x => Right(new InvalidTransition(x.toString))
         }
-      case x => Right(new InvalidState(x))
+      case x => Right(new InvalidState(x.toString))
     }
   }
 
