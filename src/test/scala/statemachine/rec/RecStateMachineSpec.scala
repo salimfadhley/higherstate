@@ -16,4 +16,14 @@ class RecStateMachineSpec extends FlatSpec with Matchers {
     }
   }
 
+  it should "be able to get an initial state" in {
+    val foo: State = RecStateMachine.newState
+
+    RecStateMachine(foo, Transition("b")) match {
+      case Left(s) => assert(s.name == "B")
+      case Right(x) => fail()
+    }
+
+  }
+
 }
