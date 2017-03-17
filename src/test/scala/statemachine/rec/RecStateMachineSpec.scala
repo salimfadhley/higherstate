@@ -12,7 +12,7 @@ class RecStateMachineSpec extends FlatSpec with Matchers {
     val foo = State("A")
     RecStateMachine(foo, Transition("b")) match {
       case Left(s) => assert(s.name == "B")
-      case Right(x) => fail()
+      case Right(_) => fail()
     }
   }
 
