@@ -5,12 +5,11 @@ version := "1.0"
 scalaVersion := "2.12.1"
 
 
+val http4sVersion = "0.15.7"
 val scalatestVersion = "3.0.1"
-val circeVersion = "0.6.1"
+val circeVersion = "0.7.0"
 
-val main = "simulation.Main"
-
-
+val main = "server.Main"
 
 libraryDependencies ++= Seq(
 
@@ -19,7 +18,14 @@ libraryDependencies ++= Seq(
   "org.scalactic" %% "scalactic" % scalatestVersion,
   "org.scalatest" %% "scalatest" % scalatestVersion % "test",
 
-  "org.http4s" %% "http4s-circe" % "0.15.7",
-  "io.circe" %% "circe-generic" % "0.6.1",
-  "io.circe" %% "circe-literal" % "0.6.1"
+  "io.circe" %% "circe-core" % circeVersion,
+  "io.circe" %% "circe-generic" % circeVersion,
+  "io.circe" %% "circe-parser" % circeVersion,
+  "io.circe" %% "circe-literal" % circeVersion,
+
+  "org.http4s" %% "http4s-dsl" % http4sVersion,
+  "org.http4s" %% "http4s-blaze-server" % http4sVersion,
+  "org.http4s" %% "http4s-blaze-client" % http4sVersion,
+  "org.http4s" %% "http4s-circe" % http4sVersion
+
 )
