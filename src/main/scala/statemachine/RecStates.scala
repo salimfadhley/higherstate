@@ -7,3 +7,10 @@ object RecState extends Enumeration {
   type RecState = Value
   val notStarted, sideA, sideB, reconciling, reconciled = Value
 }
+
+
+object Foo {
+  val x: _root_.statemachine.RecState.Value = RecState.notStarted
+
+
+}
